@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+
+  font-family: "Jetbrains Mono";
+  color: white;
+
+  background: rgb(30, 33, 62);
+  background: linear-gradient(90deg, #1e213e 0%, #1e213e 39%, #0567cb 100%);
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 60vw 40vw;
+  place-items: center;
+
+  grid-template-areas:
+    "banner main"
+    "cargo main"
+    "button main"
+    "footer main";
+}
+
+.card {
+  width: 120px;
+}
+
+header {
+  grid-area: banner;
+  align-self: start;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+h2 {
+  grid-area: cargo;
+
+  background-color: #0567cb;
+  padding: 30px 25px;
+  border-radius: 40px;
+  width: fit-content;
+  text-align: center;
+  margin: 20px;
+}
+
+main {
+  grid-area: main;
+  justify-self: center;
+  margin: 20px;
+}
+
+div {
+  width: fit-content;
+}
+
+.text {
+  place-self: start;
+}
+
+.icons {
+  width: 100px;
+}
+
+#helper {
+  grid-area: footer;
+  width: 300px;
+  margin: 20px 0px 35px;
+}
+
+.button {
+  grid-area: button;
+
+  margin: 20px;
+  padding: 10px 20px;
+
+  background-color: #ffffff;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #1e213e;
+
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+@media (max-width: 800px), (min-height: 800px) {
+  #grid {
+    grid-template-columns: auto 0;
+    grid-template-areas:
+      "banner"
+      "cargo"
+      "main"
+      "button"
+      "footer";
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1em 2em;
+    align-items: center;
+  }
+
+  header {
+    text-align: center;
+  }
+}
