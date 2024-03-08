@@ -1,5 +1,9 @@
-body {
+body,
+html {
   margin: 0;
+  padding: 0;
+
+  height: 100vh;
 
   font-family: "Jetbrains Mono";
   color: white;
@@ -15,23 +19,22 @@ body {
 
   grid-template-areas:
     "banner main"
+    "call main"
     "cargo main"
-    "button main"
-    "footer main";
+    "button footer";
 }
 
 .card {
-  width: 120px;
-}
-
-header {
   grid-area: banner;
   align-self: start;
+  width: 140px;
 }
 
 h1 {
+  grid-area: call;
   text-align: center;
-  margin: 20px;
+  font-size: 25pt;
+  margin: 0px 20px;
 }
 
 h2 {
@@ -42,37 +45,55 @@ h2 {
   border-radius: 40px;
   width: fit-content;
   text-align: center;
-  margin: 20px;
+  margin: 0;
+
+  box-shadow: 5px 6px black;
 }
 
 main {
   grid-area: main;
   justify-self: center;
-  margin: 20px;
+
+  margin: 0px 20px;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1em 2em;
+  align-items: center;
 }
 
-div {
-  width: fit-content;
+h3 {
+  margin-top: 0;
 }
 
-.text {
-  place-self: start;
+p {
+  margin-bottom: 0;
 }
 
 .icons {
   width: 100px;
+  margin: 8% 0;
+}
+
+.first {
+  margin-top: 0;
 }
 
 #helper {
   grid-area: footer;
+  margin: 0px 20px;
   width: 300px;
-  margin: 20px 0px 35px;
+  align-self: start;
+  cursor: pointer;
 }
 
 .button {
   grid-area: button;
+  align-self: start;
+  transition: 0.2s;
 
-  margin: 20px;
+  margin: 25px;
+  margin-bottom: 0px;
   padding: 10px 20px;
 
   background-color: #ffffff;
@@ -84,27 +105,51 @@ div {
   text-align: center;
 
   cursor: pointer;
+
+  box-shadow: 5px 5px black;
 }
 
-@media (max-width: 800px), (min-height: 800px) {
+.button:hover {
+  box-shadow: 6px 7px black;
+  font-weight: bold;
+}
+
+@media (max-width: 800px), (min-height: 800px), (max-height: 500px) {
   #grid {
     grid-template-columns: auto 0;
     grid-template-areas:
       "banner"
+      "call"
       "cargo"
       "main"
       "button"
       "footer";
   }
 
-  main {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1em 2em;
-    align-items: center;
+  h1 {
+    margin: 15px;
   }
 
-  header {
-    text-align: center;
+  h2 {
+    margin: 20px;
+  }
+
+  main {
+    margin: 20px;
+  }
+
+  .button {
+    margin: 20px;
+    align-self: center;
+  }
+
+  #helper {
+    margin: 20px 20px 35px 20px;
+    align-self: center;
+  }
+
+  body,
+  html {
+    height: auto;
   }
 }
